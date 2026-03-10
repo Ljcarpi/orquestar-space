@@ -216,7 +216,7 @@
             transition: max-height 0.3s ease-out;
         }
         .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        .faq-item.faq-open .faq-icon { transform: rotate(180deg); }
 
         /* Floating WP */
         .wp-float {
@@ -243,6 +243,10 @@
             background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
             background-size: 24px 24px;
         }
+
+        /* Scrollbar hide utility para CRM Tabs en movil */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-brand-950 text-slate-300 antialiased selection:bg-accent-500 selection:text-brand-950">
@@ -443,31 +447,31 @@
 
                 <div class="flex flex-col md:flex-row min-h-[500px]">
                     <!-- Sidebar Tabs -->
-                    <div class="w-full md:w-64 bg-slate-900 border-r border-slate-800 p-4 flex flex-col gap-2">
-                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-2">Vistas</p>
-                        <button class="crm-tab-btn active w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-3 font-medium" onclick="openTab(event, 'tab-conversaciones')">
+                    <div class="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-800 p-3 md:p-4 flex flex-row md:flex-col gap-2 overflow-x-auto scrollbar-hide">
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-0 md:mb-2 ml-2 hidden md:block">Vistas</p>
+                        <button class="crm-tab-btn active flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-conversaciones')">
                             <i class="ph ph-chats text-lg"></i> Conversaciones
                         </button>
-                        <button class="crm-tab-btn w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-3 font-medium" onclick="openTab(event, 'tab-stock')">
+                        <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-stock')">
                             <i class="ph ph-package text-lg"></i> Stock
                         </button>
-                        <button class="crm-tab-btn w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-3 font-medium" onclick="openTab(event, 'tab-ventas')">
+                        <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-ventas')">
                             <i class="ph ph-currency-dollar text-lg"></i> Ventas
                         </button>
-                        <button class="crm-tab-btn w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-3 font-medium" onclick="openTab(event, 'tab-analytics')">
+                        <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-analytics')">
                             <i class="ph ph-chart-bar text-lg"></i> Analytics
                         </button>
                     </div>
 
                     <!-- Content Area -->
-                    <div class="flex-1 p-6 bg-[#0B1120] overflow-x-auto text-slate-300">
+                    <div class="flex-1 p-4 md:p-6 bg-[#0B1120] overflow-x-auto text-slate-300">
                         <!-- Tab: Conversaciones -->
                         <div id="tab-conversaciones" class="crm-tab-content active">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-xl font-bold text-white">Últimas Conversaciones</h3>
                                 <button class="text-accent-500 text-sm font-semibold flex items-center gap-1 hover:underline"><i class="ph ph-arrows-clockwise"></i> Actualizar</button>
                             </div>
-                            <table class="w-full text-left text-sm">
+                            <table class="w-full text-left text-sm min-w-[650px]">
                                 <thead class="text-xs text-slate-500 uppercase bg-slate-900 border-y border-slate-800">
                                     <tr>
                                         <th class="px-4 py-3">Cliente</th>
@@ -505,7 +509,7 @@
                                 <h3 class="text-xl font-bold text-white">Inventario Sincronizado</h3>
                                 <button class="bg-brand-600 text-white px-3 py-1.5 rounded text-sm font-semibold flex items-center gap-1 hover:bg-brand-500 transition"><i class="ph ph-plus"></i> Nuevo</button>
                             </div>
-                            <table class="w-full text-left text-sm">
+                            <table class="w-full text-left text-sm min-w-[650px]">
                                 <thead class="text-xs text-slate-500 uppercase bg-slate-900 border-y border-slate-800">
                                     <tr>
                                         <th class="px-4 py-3">SKU / Producto</th>
@@ -536,7 +540,7 @@
                              <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-xl font-bold text-white">Historial de Ventas</h3>
                             </div>
-                            <table class="w-full text-left text-sm">
+                            <table class="w-full text-left text-sm min-w-[650px]">
                                 <thead class="text-xs text-slate-500 uppercase bg-slate-900 border-y border-slate-800">
                                     <tr>
                                         <th class="px-4 py-3">ID Venta</th>
@@ -868,13 +872,13 @@
         // 5. FAQ
         function toggleFaq(button) {
             const item = button.parentElement;
-            const isActive = item.classList.contains('active');
+            const isActive = item.classList.contains('faq-open');
             document.querySelectorAll('.faq-item').forEach(el => {
-                el.classList.remove('active');
+                el.classList.remove('faq-open');
                 el.querySelector('.faq-answer').style.maxHeight = null;
             });
             if (!isActive) {
-                item.classList.add('active');
+                item.classList.add('faq-open');
                 const answer = item.querySelector('.faq-answer');
                 answer.style.maxHeight = answer.scrollHeight + "px";
             }
