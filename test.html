@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrquestAr | Tu equipo comercial autónomo</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <!-- Fuentes: Syne para títulos, DM Sans para cuerpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* Paleta extraída del logo: negro cálido + dorado/ámbar intenso */
+            --bg-deep: #0e0b0f;
+            --surface-1: #181418;
+            --surface-2: #201b20;
+            --gold: #F5A623;
+            --gold-dark: #E8890C;
+            --gold-light: #FFB940;
+            --gold-glow: rgba(245, 166, 35, 0.45);
+            --gold-glow-strong: rgba(245, 166, 35, 0.65);
+            --white: #FFFFFF;
+            --white-muted: #EDE8E0;
+            --text-secondary: #8C8080;
+            --border: #2a2020;
+            --border-gold: rgba(245, 166, 35, 0.25);
+            --success: #00C48C;
+            --error: #E74C3C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Utilidades de Resplandor */
+        .glow-text {
+            text-shadow: 0 0 20px var(--gold-glow), 0 0 40px rgba(245, 166, 35, 0.15);
+        }
+
+        .glow-border {
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .glow-border:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px var(--gold-glow), inset 0 0 20px rgba(245, 166, 35, 0.03);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.25rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(14, 11, 15, 0.92);
+            backdrop-filter: blur(14px);
+            padding: 0.8rem 5%;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .nav-logo img {
+            height: 36px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--gold-glow));
+        }
+
+        .nav-logo span b {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .btn-cta {
+            background: var(--gold);
+            color: var(--bg-deep);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3), 0 0 30px rgba(245, 166, 35, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background: var(--gold-light);
+            box-shadow: 0 0 30px var(--gold-glow-strong);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-gold);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(245, 166, 35, 0.05);
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 180px 5% 100px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 4.2rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Mockup WhatsApp */
+        .whatsapp-mockup {
+            background: #0b0d0e;
+            border-radius: 24px;
+            border: 8px solid #1c1618;
+            height: 550px;
+            width: 100%;
+            max-width: 380px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(245, 166, 35, 0.05);
+            margin: 0 auto;
+        }
+
+        .wa-header {
+            background: #1a1f22;
+            padding: 40px 15px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wa-avatar {
+            width: 35px;
+            height: 35px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--bg-deep);
+            box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        .wa-chat-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: calc(100% - 130px);
+            overflow-y: auto;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-size: contain;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            position: relative;
+            animation: fadeInMsg 0.4s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes fadeInMsg {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg.received {
+            background: #1a2126;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+
+        .msg.sent {
+            background: #0a4535;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .wa-footer {
+            height: 60px;
+            background: #1a2126;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        /* Sección Dolor */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--surface-1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            text-align: left;
+            position: relative;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(245, 166, 35, 0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(245, 166, 35, 0.15);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card b {
+            color: var(--gold);
+            font-size: 1.8rem;
+            display: block;
+            margin: 10px 0;
+            text-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        /* Cómo Funciona */
+        .flow-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            background: var(--surface-1);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .flow-step:hover {
+            transform: translateX(10px);
+            border-color: var(--gold);
+            box-shadow: 0 0 25px rgba(245, 166, 35, 0.1);
+        }
+
+        .step-num {
+            min-width: 45px;
+            height: 45px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--gold);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        /* CRM Showcase */
+        .crm-showcase {
+            background: var(--surface-1);
+            border: 1px solid var(--border-gold);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(245, 166, 35, 0.05);
+        }
+
+        .crm-nav {
+            display: flex;
+            background: var(--surface-2);
+            padding: 10px;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .crm-tab {
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .crm-tab.active {
+            background: rgba(245, 166, 35, 0.12);
+            color: var(--gold);
+        }
+
+        .crm-content {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        .crm-view {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .crm-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Table Mockup */
+        .mock-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .mock-table th {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .mock-table td {
+            padding: 15px 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .badge-success { background: rgba(0, 196, 140, 0.15); color: var(--success); }
+        .badge-warning { background: rgba(245, 166, 35, 0.15); color: var(--gold); }
+        .badge-danger { background: rgba(231, 76, 60, 0.15); color: var(--error); }
+
+        /* Stats Section */
+        #stats {
+            background: linear-gradient(to bottom, var(--bg-deep), var(--surface-1));
+            display: flex;
+            justify-content: space-around;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            text-shadow: 0 0 30px var(--gold-glow-strong);
+            margin-bottom: 5px;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            background: var(--surface-1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            background: var(--surface-2);
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 300px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 5% 40px;
+            border-top: 1px solid var(--border-gold);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 12px rgba(245, 166, 35, 0.3));
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copy {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            #hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 140px;
+            }
+            .hero-content p { margin: 0 auto 2.5rem; }
+            .hero-actions { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .stat-item h3 { font-size: 2.5rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <img src="/assets/img/logo.png" alt="OrquestAr Logo">
+            <span>Orquest<b>Ar</b></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#crm">Panel CRM</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#contacto" class="btn-cta">Quiero una demo</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="background: rgba(245,166,35,0.1); color: var(--gold); padding: 5px 12px; border-radius: 100px; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">Tu equipo comercial autónomo</span>
+            </div>
+            <h1 class="glow-text">Vendé mientras dormís con Inteligencia Artificial.</h1>
+            <p>Un asistente inteligente en WhatsApp que atiende clientes, consulta stock y gestiona pagos 24/7, integrado a un potente CRM de gestión.</p>
+            <div class="hero-actions">
+                <a href="#contacto" class="btn-cta">Empezar ahora</a>
+                <a href="#como-funciona" class="btn-cta btn-outline">Ver cómo funciona</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="whatsapp-mockup">
+                <div class="wa-header">
+                    <div class="wa-avatar">O</div>
+                    <div>
+                        <div style="font-weight: bold; font-size: 0.9rem;">Asistente OrquestAr</div>
+                        <div style="font-size: 0.7rem; color: #00a884;">en línea</div>
+                    </div>
+                </div>
+                <div class="wa-chat-body" id="chat-hero">
+                    <!-- Mensajes inyectados por JS -->
+                </div>
+                <div class="wa-footer">
+                    <div style="background: #1e2a30; height: 35px; width: 100%; border-radius: 20px; padding: 0 15px; display: flex; align-items: center; color: #8696a0; font-size: 0.8rem;">
+                        Escribe un mensaje...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dolor / Problema -->
+    <section id="dolor">
+        <div class="section-header">
+            <h2 class="glow-text">El costo de no automatizar</h2>
+            <p>Gestionar WhatsApp manualmente está limitando el crecimiento de tu negocio.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card glow-border">
+                <div class="card-icon"><i data-lucide="clock"></i></div>
+                <h3>Tiempo Perdido</h3>
+                <p>Un negocio promedio dedica horas a responder las mismas preguntas.</p>
+                <b>3 hs/día</b>
+                <p class="text-secondary">Ahorradas en tareas repetitivas.</p>
+            </div>
+            <div class="card glow-border">
+                <div class="card-icon"><i data-lucide="message-square-off"></i></div>
+                <h3>Ventas Perdidas</h3>
+                <p>Clientes que consultan fuera de horario y no reciben respuesta inmediata.</p>
+                <b>66 hs/mes</b>
+                <p class="text-secondary">De atención activa garantizada.</p>
+            </div>
+            <div class="card glow-border">
+                <div class="card-icon"><i data-lucide="trending-up"></i></div>
+                <h3>Baja Conversión</h3>
+                <p>La demora en responder es la causa #1 de carritos abandonados en WhatsApp.</p>
+                <b>+35%</b>
+                <p class="text-secondary">De aumento en la tasa de cierre.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona -->
+    <section id="como-funciona" style="background: var(--surface-1); border-radius: 40px; margin: 40px 5%;">
+        <div class="section-header">
+            <h2 class="glow-text">Flujo de Venta Inteligente</h2>
+            <p>Así orquesta el asistente cada interacción con tus clientes.</p>
+        </div>
+        <div class="flow-container">
+            <div class="flow-step">
+                <div class="step-num">1</div>
+                <div>
+                    <h4>El cliente escribe</h4>
+                    <p class="text-secondary">No importa la hora, el asistente responde en milisegundos con lenguaje natural.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">2</div>
+                <div>
+                    <h4>IA interpreta y consulta</h4>
+                    <p class="text-secondary">El sistema entiende qué busca el cliente y chequea el stock real en tu catálogo.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">3</div>
+                <div>
+                    <h4>Gestión de Pago</h4>
+                    <p class="text-secondary">Genera automáticamente un link de MercadoPago con el monto exacto del pedido.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">4</div>
+                <div>
+                    <h4>Registro en CRM</h4>
+                    <p class="text-secondary">La venta se registra, el stock se descuenta y vos recibís la notificación de orden lista.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRM Showcase -->
+    <section id="crm">
+        <div class="section-header">
+            <h2 class="glow-text">Panel de Control en Tiempo Real</h2>
+            <p>Toda la información de tu negocio centralizada y organizada.</p>
+        </div>
+        <div class="crm-showcase">
+            <div class="crm-nav">
+                <div class="crm-tab active" onclick="switchCRMTab(0)">Conversaciones</div>
+                <div class="crm-tab" onclick="switchCRMTab(1)">Stock</div>
+                <div class="crm-tab" onclick="switchCRMTab(2)">Ventas</div>
+                <div class="crm-tab" onclick="switchCRMTab(3)">Analytics</div>
+            </div>
+            <div class="crm-content">
+                <!-- Tab: Conversaciones -->
+                <div class="crm-view active" id="crm-tab-0">
+                    <table class="mock-table">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Estado</th>
+                                <th>Intención</th>
+                                <th>Último Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan Pérez</td>
+                                <td><span class="badge badge-warning">En Proceso</span></td>
+                                <td><span class="badge badge-success">🔥 Alta</span></td>
+                                <td>"¿Me pasas el link de pago?"</td>
+                            </tr>
+                            <tr>
+                                <td>María García</td>
+                                <td><span class="badge badge-success">Finalizado</span></td>
+                                <td><span class="badge">Baja</span></td>
+                                <td>"Gracias, espero el envío."</td>
+                            </tr>
+                            <tr>
+                                <td>Lucas Ruiz</td>
+                                <td><span class="badge badge-warning">Esperando Pago</span></td>
+                                <td><span class="badge badge-success">🔥 Alta</span></td>
+                                <td>Link de MP enviado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Tab: Stock -->
+                <div class="crm-view" id="crm-tab-1">
+                    <table class="mock-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Taladro Percutor 13mm</td>
+                                <td>Herramientas</td>
+                                <td>24</td>
+                                <td><span class="badge badge-success">OK</span></td>
+                            </tr>
+                            <tr>
+                                <td>Amoladora Angular</td>
+                                <td>Herramientas</td>
+                                <td>8</td>
+                                <td><span class="badge badge-warning">Bajo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Set Destornilladores x12</td>
+                                <td>Manuales</td>
+                                <td>0</td>
+                                <td><span class="badge badge-danger">Sin Stock</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Tab: Ventas -->
+                <div class="crm-view" id="crm-tab-2">
+                    <table class="mock-table">
+                        <thead>
+                            <tr>
+                                <th>ID Orden</th>
+                                <th>Total</th>
+                                <th>Método</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-4592</td>
+                                <td>$15.400</td>
+                                <td>MercadoPago</td>
+                                <td>Hoy 14:20</td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-4591</td>
+                                <td>$8.900</td>
+                                <td>MercadoPago</td>
+                                <td>Hoy 13:45</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Tab: Analytics -->
+                <div class="crm-view" id="crm-tab-3">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div class="card" style="padding: 20px;">
+                            <span class="text-secondary" style="font-size: 0.8rem;">Ventas del Mes</span>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--gold);">$1.240.000</div>
+                            <span style="color: var(--success); font-size: 0.8rem;">↑ 12.5% vs mes anterior</span>
+                        </div>
+                        <div class="card" style="padding: 20px;">
+                            <span class="text-secondary" style="font-size: 0.8rem;">Tiempo Prom. de Respuesta</span>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--gold);">4 Segundos</div>
+                            <span style="color: var(--success); font-size: 0.8rem;">Optimizado</span>
+                        </div>
+                        <div class="card" style="padding: 20px;">
+                            <span class="text-secondary" style="font-size: 0.8rem;">Consultas Totales</span>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--gold);">1.450</div>
+                            <span style="color: var(--success); font-size: 0.8rem;">88% Automatizadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div id="stats">
+        <div class="stat-item">
+            <h3 class="counter" data-target="3">0</h3>
+            <p>Horas/Día Ahorradas</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="counter" data-target="66">0</h3>
+            <p>Horas/Mes Libres</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="counter" data-target="35">0</h3>
+            <p>% Conversión extra</p>
+        </div>
+        <div class="stat-item">
+            <h3 style="color: var(--gold); text-shadow: 0 0 30px var(--gold-glow-strong);">24/7</h3>
+            <p>Disponibilidad Total</p>
+        </div>
+    </div>
+
+    <!-- Planes -->
+    <section id="precios">
+        <div class="section-header">
+            <h2 class="glow-text">Planes que escalan con vos</h2>
+            <p>Inversión inteligente para negocios que buscan profesionalizar su atención.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card glow-border">
+                <h4 style="color: var(--text-secondary)">Starter</h4>
+                <div style="font-size: 1.2rem; margin: 15px 0;">Para empezar</div>
+                <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Asistente IA Básico</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Hasta 200 items stock</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Soporte por Email</li>
+                </ul>
+                <a href="#" class="btn-cta btn-outline" style="width: 100%; text-align: center; display: block;">Consultar precio</a>
+            </div>
+            <div class="card glow-border" style="border-color: var(--gold); transform: scale(1.05); box-shadow: 0 0 40px rgba(245,166,35,0.15);">
+                <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--bg-deep); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.75rem;">MÁS POPULAR</span>
+                <h4>Business</h4>
+                <div style="font-size: 1.2rem; margin: 15px 0;">Crecimiento acelerado</div>
+                <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> IA de ventas completa</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Stock Ilimitado</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Integración MercadoPago</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> CRM Avanzado</li>
+                </ul>
+                <a href="#" class="btn-cta" style="width: 100%; text-align: center; display: block;">Consultar precio</a>
+            </div>
+            <div class="card glow-border">
+                <h4 style="color: var(--text-secondary)">Enterprise</h4>
+                <div style="font-size: 1.2rem; margin: 15px 0;">A tu medida</div>
+                <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Flujos personalizados</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Integración con tu ERP</li>
+                    <li style="margin-bottom: 10px;"><i data-lucide="check" style="width: 14px; color: var(--gold); margin-right: 5px;"></i> Soporte Dedicado 24/7</li>
+                </ul>
+                <a href="#" class="btn-cta btn-outline" style="width: 100%; text-align: center; display: block;">Cotizar ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="section-header">
+            <h2 class="glow-text">Preguntas Frecuentes</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">¿Funciona con mi número de WhatsApp actual? <i data-lucide="plus"></i></div>
+                <div class="faq-answer">Sí, podemos integrar OrquestAr con tu número de WhatsApp Business actual sin que pierdas tus contactos ni chats previos.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cuánto tarda la implementación? <i data-lucide="plus"></i></div>
+                <div class="faq-answer">La configuración inicial suele tomar entre 48 y 72 horas hábiles, dependiendo de la complejidad de tu catálogo de productos.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Qué pasa si el bot no sabe responder algo? <i data-lucide="plus"></i></div>
+                <div class="faq-answer">El asistente está programado para detectar cuando no tiene una respuesta precisa. En ese caso, deriva la conversación automáticamente a un humano y te notifica en el panel CRM.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Es necesario tener conocimientos técnicos? <i data-lucide="plus"></i></div>
+                <div class="faq-answer">Para nada. Nosotros nos encargamos de la configuración técnica. Vos solo gestionás tu negocio desde un panel intuitivo, similar a usar cualquier red social.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section style="text-align: center; background: linear-gradient(rgba(14, 11, 15, 0) 0%, rgba(245, 166, 35, 0.06) 100%); border-radius: 40px; margin: 60px 5%; padding: 80px 20px;">
+        <h2 class="glow-text" style="font-size: 3rem; margin-bottom: 20px;">¿Listo para orquestar tus ventas?</h2>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px;">Dejá que la tecnología trabaje por vos. Atendé a cada cliente como se merece, sin interrupciones.</p>
+        <a href="#contacto" class="btn-cta" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Solicitar mi demo gratuita</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <img src="logo2.png" alt="OrquestAr Full Logo" onerror="this.src='https://placehold.co/200x60/0e0b0f/F5A623?text=OrquestAr'">
+                <p style="color: var(--text-secondary); margin-top: 20px;">Tu equipo comercial autónomo. Automatización inteligente de ventas y CRM para negocios modernos.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                    <li><a href="#crm">Panel CRM</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Términos de servicio</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="mailto:info@orquestar.ar">info@orquestar.ar</a></li>
+                    <li><a href="#">WhatsApp Soporte</a></li>
+                    <li><a href="#">Buenos Aires, Argentina</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copy">
+            &copy; 2024 OrquestAr. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar iconos Lucide
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // WhatsApp Hero Animation
+        const chatContainer = document.getElementById('chat-hero');
+        const script = [
+            { role: 'received', text: 'Hola! Tienen stock del taladro DeWalt?' },
+            { role: 'sent', text: 'Hola! 👋 Dejame chequear...' },
+            { role: 'sent', text: 'Sí! Tenemos 12 unidades disponibles. El precio es $85.400. Te gustaría reservar uno?' },
+            { role: 'received', text: 'Buenísimo. Sí, quiero uno. Haces envíos?' },
+            { role: 'sent', text: 'Perfecto! Hacemos envíos a todo el país. Aquí tenés el link para completar tu compra:' },
+            { role: 'sent', text: '💳 [Link de MercadoPago]', isLink: true },
+            { role: 'received', text: 'Listo, ya pagué!' },
+            { role: 'sent', text: '✅ Pago aprobado. Tu orden #4592 ha sido registrada. Pronto recibirás los datos de envío!' }
+        ];
+
+        let msgIndex = 0;
+        function renderMessages() {
+            if (msgIndex < script.length) {
+                const msg = script[msgIndex];
+                const div = document.createElement('div');
+                div.className = `msg ${msg.role}`;
+                div.innerText = msg.text;
+                if(msg.isLink) div.style.color = '#FFB940';
+                chatContainer.appendChild(div);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                msgIndex++;
+                setTimeout(renderMessages, 1800);
+            } else {
+                setTimeout(() => {
+                    chatContainer.innerHTML = '';
+                    msgIndex = 0;
+                    renderMessages();
+                }, 4000);
+            }
+        }
+        renderMessages();
+
+        // CRM Tabs
+        function switchCRMTab(index) {
+            document.querySelectorAll('.crm-view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.crm-tab').forEach(t => t.classList.remove('active'));
+            
+            document.getElementById(`crm-tab-${index}`).classList.add('active');
+            document.querySelectorAll('.crm-tab')[index].classList.add('active');
+        }
+
+        // Counter Animation
+        const observerOptions = { threshold: 0.5 };
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const countTo = parseInt(target.getAttribute('data-target'));
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = countTo / (duration / 16);
+                    
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < countTo) {
+                            target.innerText = Math.floor(count);
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            target.innerText = countTo + (countTo === 35 ? '%' : '');
+                        }
+                    };
+                    updateCount();
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('i');
+                if(item.classList.contains('active')) {
+                    icon.setAttribute('data-lucide', 'minus');
+                } else {
+                    icon.setAttribute('data-lucide', 'plus');
+                }
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
