@@ -423,174 +423,85 @@
         </div>
     </section>
 
-    <!-- CRM Simulator Section (Dark Mode) -->
+    <!-- CRM Showcase Section (Dark Mode) -->
     <section id="crm" class="py-24 bg-brand-900 border-t border-brand-800">
-        <!-- ... (Contenido del CRM igual) ... -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 reveal">
                 <h2 class="text-3xl font-bold text-white mb-4">Toma el control con nuestro Panel CRM</h2>
-                <p class="text-lg text-slate-400">Visualiza interacciones, gestiona tu inventario y analiza tus ventas desde una única plataforma amigable.</p>
+                <p class="text-lg text-slate-400">Visualiza interacciones, gestiona tu inventario y analiza tus ventas desde una única plataforma amigable y en tiempo real.</p>
             </div>
 
-            <!-- Dashboard Mockup -->
-            <div class="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 overflow-hidden reveal shadow-black/50">
-                <!-- Top Bar -->
-                <div class="bg-slate-950 text-slate-300 px-6 py-3 flex justify-between items-center border-b border-slate-800">
-                    <div class="flex items-center gap-2 font-mono font-bold text-white">
-                        <i class="ph-fill ph-circles-four text-accent-500"></i> OrquestAr CRM Workspace
-                    </div>
-                    <div class="flex items-center gap-4 text-sm">
-                        <span class="flex items-center gap-1 text-green-400"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Online</span>
-                        <div class="w-8 h-8 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold">AD</div>
-                    </div>
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start reveal">
+                <!-- Sidebar Tabs -->
+                <div class="w-full lg:w-1/4 flex flex-row lg:flex-col gap-2 overflow-x-auto scrollbar-hide pb-2 lg:pb-0">
+                    <button class="crm-tab-btn active flex-shrink-0 whitespace-nowrap w-auto lg:w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-brand-800 hover:text-white transition flex items-center gap-3 font-medium text-sm lg:text-base border border-transparent" onclick="openTab(event, 'tab-conversaciones')">
+                        <i class="ph ph-chats text-xl"></i> Conversaciones
+                    </button>
+                    <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto lg:w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-brand-800 hover:text-white transition flex items-center gap-3 font-medium text-sm lg:text-base border border-transparent" onclick="openTab(event, 'tab-stock')">
+                        <i class="ph ph-package text-xl"></i> Stock
+                    </button>
+                    <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto lg:w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-brand-800 hover:text-white transition flex items-center gap-3 font-medium text-sm lg:text-base border border-transparent" onclick="openTab(event, 'tab-ventas')">
+                        <i class="ph ph-currency-dollar text-xl"></i> Ventas
+                    </button>
+                    <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto lg:w-full text-left px-4 py-3 rounded-xl text-slate-400 hover:bg-brand-800 hover:text-white transition flex items-center gap-3 font-medium text-sm lg:text-base border border-transparent" onclick="openTab(event, 'tab-analytics')">
+                        <i class="ph ph-chart-bar text-xl"></i> Analytics
+                    </button>
                 </div>
 
-                <div class="flex flex-col md:flex-row min-h-[500px]">
-                    <!-- Sidebar Tabs -->
-                    <div class="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-800 p-3 md:p-4 flex flex-row md:flex-col gap-2 overflow-x-auto scrollbar-hide">
-                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-0 md:mb-2 ml-2 hidden md:block">Vistas</p>
-                        <button class="crm-tab-btn active flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-conversaciones')">
-                            <i class="ph ph-chats text-lg"></i> Conversaciones
-                        </button>
-                        <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-stock')">
-                            <i class="ph ph-package text-lg"></i> Stock
-                        </button>
-                        <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-ventas')">
-                            <i class="ph ph-currency-dollar text-lg"></i> Ventas
-                        </button>
-                        <button class="crm-tab-btn flex-shrink-0 whitespace-nowrap w-auto md:w-full text-left px-4 py-2 md:py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition flex items-center gap-2 md:gap-3 font-medium text-sm md:text-base" onclick="openTab(event, 'tab-analytics')">
-                            <i class="ph ph-chart-bar text-lg"></i> Analytics
-                        </button>
-                    </div>
-
-                    <!-- Content Area -->
-                    <div class="flex-1 p-4 md:p-6 bg-[#0B1120] overflow-x-auto text-slate-300">
+                <!-- Images Content Area -->
+                <div class="w-full lg:w-3/4">
+                    <div class="bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl p-4 md:p-6 shadow-black/50">
                         <!-- Tab: Conversaciones -->
                         <div id="tab-conversaciones" class="crm-tab-content active">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-xl font-bold text-white">Últimas Conversaciones</h3>
-                                <button class="text-accent-500 text-sm font-semibold flex items-center gap-1 hover:underline"><i class="ph ph-arrows-clockwise"></i> Actualizar</button>
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-users text-accent-500"></i> Clientes / Conversaciones
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Centralizá todos tus chats de WhatsApp en un solo lugar. Detectá automáticamente qué clientes tienen intención de compra y priorizá los seguimientos que convierten.
+                                </p>
                             </div>
-                            <table class="w-full text-left text-sm min-w-[650px]">
-                                <thead class="text-xs text-slate-500 uppercase bg-slate-900 border-y border-slate-800">
-                                    <tr>
-                                        <th class="px-4 py-3">Cliente</th>
-                                        <th class="px-4 py-3">Último Mensaje</th>
-                                        <th class="px-4 py-3">Estado</th>
-                                        <th class="px-4 py-3">Hora</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-medium text-white">+54 9 11 1234...</td>
-                                        <td class="px-4 py-3 truncate max-w-[200px] text-slate-400">Retiro por el local gracias!</td>
-                                        <td class="px-4 py-3"><span class="bg-green-900/40 text-green-400 border border-green-800/50 px-2 py-1 rounded text-xs font-semibold">Cerrada</span></td>
-                                        <td class="px-4 py-3 text-slate-500">Hace 2 min</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-medium text-white">+54 9 351 987...</td>
-                                        <td class="px-4 py-3 truncate max-w-[200px] text-slate-400">¿Tienen en talle M?</td>
-                                        <td class="px-4 py-3"><span class="bg-brand-900/50 text-brand-300 border border-brand-800/50 px-2 py-1 rounded text-xs font-semibold">Bot Activo</span></td>
-                                        <td class="px-4 py-3 text-slate-500">Hace 12 min</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-medium text-white">+54 9 223 555...</td>
-                                        <td class="px-4 py-3 truncate max-w-[200px] text-slate-400">Necesito hablar con un humano.</td>
-                                        <td class="px-4 py-3"><span class="bg-orange-900/40 text-orange-400 border border-orange-800/50 px-2 py-1 rounded text-xs font-semibold">Esperando</span></td>
-                                        <td class="px-4 py-3 text-slate-500">Hace 1 hora</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <img src="/assets/img/mensajes.PNG" onerror="this.src='mensajes.PNG'" alt="Vista de Conversaciones en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
-
+                        
                         <!-- Tab: Stock -->
                         <div id="tab-stock" class="crm-tab-content">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-xl font-bold text-white">Inventario Sincronizado</h3>
-                                <button class="bg-brand-600 text-white px-3 py-1.5 rounded text-sm font-semibold flex items-center gap-1 hover:bg-brand-500 transition"><i class="ph ph-plus"></i> Nuevo</button>
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-package text-accent-500"></i> Stock
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Controlá tu inventario en tiempo real. Editá precios, cantidades y categorías al instante, con alertas visuales de stock bajo e importación/exportación en Excel.
+                                </p>
                             </div>
-                            <table class="w-full text-left text-sm min-w-[650px]">
-                                <thead class="text-xs text-slate-500 uppercase bg-slate-900 border-y border-slate-800">
-                                    <tr>
-                                        <th class="px-4 py-3">SKU / Producto</th>
-                                        <th class="px-4 py-3">Categoría</th>
-                                        <th class="px-4 py-3">Precio</th>
-                                        <th class="px-4 py-3">Stock Disp.</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-medium text-white">ZAP-001 <br><span class="text-xs text-slate-500 font-normal">Zapatillas Urbanas Negras</span></td>
-                                        <td class="px-4 py-3 text-slate-400">Calzado</td>
-                                        <td class="px-4 py-3 text-slate-300">$45.000</td>
-                                        <td class="px-4 py-3"><span class="font-bold text-white">12</span> <span class="text-slate-500">u.</span></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-medium text-white">REM-045 <br><span class="text-xs text-slate-500 font-normal">Remera Básica Blanca</span></td>
-                                        <td class="px-4 py-3 text-slate-400">Indumentaria</td>
-                                        <td class="px-4 py-3 text-slate-300">$12.500</td>
-                                        <td class="px-4 py-3"><span class="font-bold text-red-400">2</span> <span class="text-slate-500">u.</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <img src="/assets/img/stock.PNG" onerror="this.src='stock.PNG'" alt="Vista de Stock en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
-
+                        
                         <!-- Tab: Ventas -->
                         <div id="tab-ventas" class="crm-tab-content">
-                             <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-xl font-bold text-white">Historial de Ventas</h3>
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-currency-dollar text-accent-500"></i> Ventas
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Seguí cada venta, su estado y detalle de productos en una tabla clara y ordenable. Tu facturación siempre a la vista.
+                                </p>
                             </div>
-                            <table class="w-full text-left text-sm min-w-[650px]">
-                                <thead class="text-xs text-slate-500 uppercase bg-slate-900 border-y border-slate-800">
-                                    <tr>
-                                        <th class="px-4 py-3">ID Venta</th>
-                                        <th class="px-4 py-3">Monto</th>
-                                        <th class="px-4 py-3">Pasarela</th>
-                                        <th class="px-4 py-3">Estado</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-mono text-xs text-slate-400">#VN-8832</td>
-                                        <td class="px-4 py-3 font-medium text-white">$45.000</td>
-                                        <td class="px-4 py-3"><img src="https://logotipoz.com/wp-content/uploads/2021/10/logo-mercado-pago.png" class="h-4 opacity-80 filter grayscale hover:grayscale-0 transition" alt="MP"></td>
-                                        <td class="px-4 py-3"><span class="bg-green-900/40 text-green-400 border border-green-800/50 px-2 py-1 rounded text-xs font-semibold">Aprobado</span></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                                        <td class="px-4 py-3 font-mono text-xs text-slate-400">#VN-8831</td>
-                                        <td class="px-4 py-3 font-medium text-white">$12.500</td>
-                                        <td class="px-4 py-3"><img src="https://logotipoz.com/wp-content/uploads/2021/10/logo-mercado-pago.png" class="h-4 opacity-80 filter grayscale hover:grayscale-0 transition" alt="MP"></td>
-                                        <td class="px-4 py-3"><span class="bg-accent-900/40 text-accent-400 border border-accent-800/50 px-2 py-1 rounded text-xs font-semibold">Pendiente</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <img src="/assets/img/pagos.PNG" onerror="this.src='pagos.PNG'" alt="Vista de Ventas y Pagos en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
-
+                        
                         <!-- Tab: Analytics -->
                         <div id="tab-analytics" class="crm-tab-content">
-                            <h3 class="text-xl font-bold text-white mb-6">Métricas de Rendimiento</h3>
-                            <div class="grid grid-cols-2 gap-4 mb-6">
-                                <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                                    <p class="text-sm text-slate-400 mb-1">Interacciones de la IA</p>
-                                    <p class="text-3xl font-bold text-accent-500">842</p>
-                                </div>
-                                <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                                    <p class="text-sm text-slate-400 mb-1">Ventas Cerradas por Bot</p>
-                                    <p class="text-3xl font-bold text-green-400">124</p>
-                                </div>
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-chart-bar text-accent-500"></i> Analytics
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Métricas de conversaciones y ventas con comparativas por período y un mapa de calor para saber cuándo están más activos tus clientes.
+                                </p>
                             </div>
-                            <div class="w-full h-32 bg-slate-900 border border-slate-800 rounded-xl flex items-end px-4 gap-2 pb-2 pt-8">
-                                <div class="w-full bg-brand-800 rounded-t-sm h-[40%] hover:bg-brand-600 transition"></div>
-                                <div class="w-full bg-brand-700 rounded-t-sm h-[60%] hover:bg-brand-500 transition"></div>
-                                <div class="w-full bg-brand-600 rounded-t-sm h-[80%] hover:bg-brand-400 transition"></div>
-                                <div class="w-full bg-accent-600 rounded-t-sm h-[50%] hover:bg-accent-500 transition"></div>
-                                <div class="w-full bg-brand-500 rounded-t-sm h-[100%] hover:bg-brand-400 transition"></div>
-                                <div class="w-full bg-brand-600 rounded-t-sm h-[70%] hover:bg-brand-500 transition"></div>
-                                <div class="w-full bg-brand-700 rounded-t-sm h-[90%] hover:bg-brand-600 transition"></div>
-                            </div>
-                            <p class="text-center text-xs text-slate-500 mt-2">Ventas de los últimos 7 días</p>
+                            <img src="/assets/img/analytics.PNG" onerror="this.src='analytics.PNG'" alt="Vista de Analytics en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
-
                     </div>
                 </div>
             </div>
