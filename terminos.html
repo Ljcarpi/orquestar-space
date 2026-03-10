@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones | OrquestAr</title>
+    <meta name="description" content="Términos y Condiciones de uso del servicio OrquestAr — Tu equipo comercial autónomo.">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50:  '#faf5ff',
+                            100: '#f3e8ff',
+                            500: '#a855f7',
+                            600: '#4c1d95',
+                            800: '#3b0764',
+                            900: '#2e1065',
+                            950: '#110a28',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        .glass-nav {
+            background: rgba(17, 10, 40, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-nav.scrolled {
+            box-shadow: 0 4px 20px -1px rgba(0,0,0,0.5);
+            background: rgba(17, 10, 40, 0.95);
+        }
+
+        .wp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: transform 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .wp-float:hover { transform: scale(1.05); }
+
+        .bg-pattern {
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Prose legal styles */
+        .legal-content h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .legal-content h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .legal-content p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        .legal-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0.75rem;
+        }
+        .legal-content ul li {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        .legal-content ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: 700;
+        }
+        .legal-content strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* TOC */
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .toc-item:hover {
+            background: rgba(76, 29, 149, 0.3);
+            color: #f59e0b;
+        }
+        .toc-num {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: rgba(76, 29, 149, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #f59e0b;
+            flex-shrink: 0;
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-slate-300 antialiased selection:bg-accent-500 selection:text-brand-950">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 glass-nav py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 md:gap-3">
+                <img src="/assets/img/logo.png" alt="OrquestAr Logo" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none';">
+                <span class="text-2xl font-bold tracking-tight text-white flex items-center">
+                    Orquest<span class="text-accent-500">Ar</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="/#problema" class="hover:text-accent-400 transition">El Problema</a>
+                <a href="/#flujo" class="hover:text-accent-400 transition">Cómo Funciona</a>
+                <a href="/#crm" class="hover:text-accent-400 transition">Panel CRM</a>
+                <a href="/#faq" class="hover:text-accent-400 transition">FAQ</a>
+            </div>
+            <div>
+                <a href="https://wa.me/5491162857653?text=Hola,%20quiero%20una%20demo%20de%20OrquestAr" target="_blank"
+                   class="bg-brand-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-brand-500 transition shadow-lg shadow-brand-600/30">
+                    Quiero una demo
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero del documento -->
+    <section class="pt-32 pb-12 bg-pattern relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-600 rounded-full mix-blend-screen filter blur-[140px] opacity-25"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+                <a href="/" class="hover:text-accent-400 transition">Inicio</a>
+                <i class="ph-bold ph-caret-right text-xs"></i>
+                <span class="text-slate-300">Términos y Condiciones</span>
+            </div>
+
+            <!-- Badge + Título -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-900/50 text-accent-400 text-sm font-semibold mb-6 border border-accent-500/20">
+                <i class="ph-fill ph-file-text"></i> Documento Legal
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+                Términos y <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">Condiciones</span>
+            </h1>
+            <p class="text-slate-400 text-lg max-w-2xl mb-4">
+                Al contratar o utilizar el servicio OrquestAr, aceptás en su totalidad las condiciones aquí establecidas.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+                <span class="flex items-center gap-1.5">
+                    <i class="ph-fill ph-calendar text-accent-500"></i>
+                    Última actualización: Marzo de 2026
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <i class="ph-fill ph-map-pin text-accent-500"></i>
+                    Legislación aplicable: República Argentina
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <i class="ph-fill ph-envelope text-accent-500"></i>
+                    contacto@orquestar.space
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12">
+
+                <!-- Sidebar TOC (sticky) -->
+                <aside class="hidden lg:block lg:col-span-3">
+                    <div class="sticky top-28">
+                        <div class="bg-brand-900/40 border border-brand-800 rounded-2xl p-5">
+                            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Contenido</p>
+                            <nav class="flex flex-col gap-1">
+                                <a href="#art1"  class="toc-item"><span class="toc-num">1</span>Definiciones</a>
+                                <a href="#art2"  class="toc-item"><span class="toc-num">2</span>Descripción del Servicio</a>
+                                <a href="#art3"  class="toc-item"><span class="toc-num">3</span>Condiciones de Contratación</a>
+                                <a href="#art4"  class="toc-item"><span class="toc-num">4</span>Precio y Facturación</a>
+                                <a href="#art5"  class="toc-item"><span class="toc-num">5</span>Cancelación y Reembolsos</a>
+                                <a href="#art6"  class="toc-item"><span class="toc-num">6</span>Obligaciones del Cliente</a>
+                                <a href="#art7"  class="toc-item"><span class="toc-num">7</span>Limitación de Responsabilidad</a>
+                                <a href="#art8"  class="toc-item"><span class="toc-num">8</span>Propiedad Intelectual</a>
+                                <a href="#art9"  class="toc-item"><span class="toc-num">9</span>Portabilidad y Baja</a>
+                                <a href="#art10" class="toc-item"><span class="toc-num">10</span>Modificaciones</a>
+                                <a href="#art11" class="toc-item"><span class="toc-num">11</span>Jurisdicción</a>
+                                <a href="#art12" class="toc-item"><span class="toc-num">12</span>Contacto</a>
+                            </nav>
+
+                            <div class="mt-6 pt-6 border-t border-brand-800">
+                                <a href="/privacidad.html" class="flex items-center gap-2 text-sm text-slate-400 hover:text-accent-400 transition">
+                                    <i class="ph-fill ph-shield-check text-accent-500"></i>
+                                    Ver Política de Privacidad
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Documento -->
+                <main class="lg:col-span-9">
+
+                    <!-- Recuadro introductorio -->
+                    <div class="bg-brand-900/40 border-l-4 border-accent-500 border border-brand-800 rounded-2xl p-6 mb-10 reveal">
+                        <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                            Estos Términos y Condiciones regulan el acceso y uso del servicio <strong>OrquestAr</strong>, incluyendo el asistente de ventas por WhatsApp y el panel CRM.
+                        </p>
+                        <div class="grid sm:grid-cols-3 gap-4 mt-4">
+                            <div class="flex items-start gap-2">
+                                <i class="ph-fill ph-storefront text-accent-500 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-semibold uppercase">Prestador</p>
+                                    <p class="text-sm text-slate-300">OrquestAr, razón comercial operada por persona física radicada en Argentina</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="ph-fill ph-envelope text-accent-500 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-semibold uppercase">Contacto legal</p>
+                                    <p class="text-sm text-slate-300">contacto@orquestar.space</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="ph-fill ph-scales text-accent-500 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-semibold uppercase">Ley aplicable</p>
+                                    <p class="text-sm text-slate-300">Legislación de la República Argentina</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legal-content space-y-2">
+
+                        <!-- Art 1 -->
+                        <div id="art1" class="reveal">
+                            <h2><span class="toc-num">1</span> Definiciones</h2>
+                            <p>A los efectos del presente documento se entiende por:</p>
+                            <ul>
+                                <li><strong>OrquestAr / el Servicio:</strong> la plataforma de automatización comercial que incluye el asistente de ventas inteligente por WhatsApp y el panel de gestión CRM.</li>
+                                <li><strong>Cliente:</strong> toda persona física mayor de 18 años o empresa que contrate el Servicio para uso comercial propio.</li>
+                                <li><strong>Cliente Final:</strong> toda persona que interactúe con el asistente de WhatsApp desplegado por el Cliente en su negocio.</li>
+                                <li><strong>Panel CRM:</strong> la aplicación web que permite al Cliente gestionar conversaciones, stock, ventas y analíticas.</li>
+                                <li><strong>Período de Prueba:</strong> los 14 días calendario gratuitos desde la activación del Servicio.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Art 2 -->
+                        <div id="art2" class="reveal">
+                            <h2><span class="toc-num">2</span> Descripción del Servicio</h2>
+                            <p>OrquestAr provee una solución de automatización comercial que comprende:</p>
+                            <ul>
+                                <li>Un asistente de ventas con inteligencia artificial integrado al número de WhatsApp del Cliente, capaz de responder consultas, informar disponibilidad de stock y precios, y gestionar el cobro a través de MercadoPago.</li>
+                                <li>Un panel CRM web accesible desde cualquier navegador, que centraliza conversaciones, inventario, registro de ventas y métricas de desempeño.</li>
+                                <li>Configuración inicial, carga del catálogo y entrenamiento del asistente según los parámetros definidos por el Cliente.</li>
+                            </ul>
+                            <p>El Servicio es de naturaleza B2B: está diseñado para ser contratado por negocios o emprendimientos que lo despliegan frente a sus propios clientes finales.</p>
+                        </div>
+
+                        <!-- Art 3 -->
+                        <div id="art3" class="reveal">
+                            <h2><span class="toc-num">3</span> Condiciones de Contratación</h2>
+                            <h3>3.1 Requisitos</h3>
+                            <ul>
+                                <li>El Cliente debe ser mayor de 18 años y tener capacidad legal para contratar.</li>
+                                <li>El Cliente debe contar con un número de WhatsApp activo y una cuenta de MercadoPago válida para el uso completo del Servicio.</li>
+                                <li>Al aceptar estos Términos, el Cliente declara haber leído y comprendido su contenido en su totalidad.</li>
+                            </ul>
+                            <h3>3.2 Proceso de contratación</h3>
+                            <p>La contratación se realiza mediante contacto directo con OrquestAr (WhatsApp, formulario web u otro canal habilitado). El Servicio se activa una vez confirmada la solicitud por parte de OrquestAr y completada la configuración inicial.</p>
+                            <h3>3.3 Período de prueba</h3>
+                            <p>Todo nuevo Cliente accede a un período de prueba gratuito de <strong>14 (catorce) días calendario</strong> desde la fecha de activación. Durante este período puede acceder a las funcionalidades del plan contratado sin cargo. Al finalizar, el Servicio continúa activo únicamente si el Cliente confirma la suscripción y abona el plan correspondiente.</p>
+                        </div>
+
+                        <!-- Art 4 -->
+                        <div id="art4" class="reveal">
+                            <h2><span class="toc-num">4</span> Precio y Facturación</h2>
+                            <p>OrquestAr opera bajo un modelo de suscripción mensual. El precio es informado al Cliente previo a la confirmación del Servicio y puede variar según las funcionalidades incluidas.</p>
+                            <ul>
+                                <li>Los pagos se procesan a través de los medios habilitados por OrquestAr al momento de la contratación.</li>
+                                <li>En caso de no abonarse la suscripción en el plazo acordado, OrquestAr puede suspender temporalmente el acceso al Servicio hasta regularizar la situación.</li>
+                                <li>Los precios están expresados en pesos argentinos (ARS) salvo indicación expresa en contrario. OrquestAr puede actualizar sus tarifas con un preaviso mínimo de 15 días al Cliente.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Art 5 -->
+                        <div id="art5" class="reveal">
+                            <h2><span class="toc-num">5</span> Cancelación y Reembolsos</h2>
+                            <h3>5.1 Cancelación</h3>
+                            <p>El Cliente puede cancelar su suscripción en cualquier momento, sin penalidad, mediante comunicación a <strong>contacto@orquestar.space</strong> o por el canal habilitado. La cancelación es efectiva al finalizar el período mensual en curso.</p>
+                            <h3>5.2 Política de no reembolso</h3>
+                            <p>OrquestAr no realiza reembolsos por períodos ya abonados. En caso de cancelación durante un período activo, el Cliente mantiene acceso al Servicio hasta su vencimiento, sin cargos adicionales.</p>
+                            <h3>5.3 Excepción — Período de prueba</h3>
+                            <p>Durante el período de prueba gratuita no se realiza ningún cobro. El Cliente puede cancelar sin cargo en cualquier momento dentro de esos 14 días.</p>
+                        </div>
+
+                        <!-- Art 6 -->
+                        <div id="art6" class="reveal">
+                            <h2><span class="toc-num">6</span> Obligaciones del Cliente</h2>
+                            <p>El Cliente se compromete a:</p>
+                            <ul>
+                                <li>Proporcionar información veraz, completa y actualizada sobre su negocio, catálogo, precios y cualquier dato necesario para la correcta configuración del Servicio.</li>
+                                <li>Utilizar el Servicio exclusivamente para fines comerciales lícitos y dentro del marco legal vigente en Argentina.</li>
+                                <li>No utilizar el asistente para comunicaciones masivas no solicitadas (spam), información engañosa o contenido que viole derechos de terceros.</li>
+                                <li>Mantener la confidencialidad de sus credenciales de acceso al panel CRM.</li>
+                                <li>Informar a sus Clientes Finales que están interactuando con un sistema automatizado con inteligencia artificial.</li>
+                                <li>Cumplir con las condiciones de uso de WhatsApp Business y MercadoPago, plataformas sobre las cuales OrquestAr no tiene control directo.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Art 7 -->
+                        <div id="art7" class="reveal">
+                            <h2><span class="toc-num">7</span> Limitación de Responsabilidad</h2>
+                            <h3>7.1 Información del catálogo</h3>
+                            <p>OrquestAr no es responsable por errores, omisiones o inexactitudes en la información cargada por el Cliente (precios, stock, descripciones). La veracidad y actualización de dichos datos es responsabilidad exclusiva del Cliente.</p>
+                            <h3>7.2 Disponibilidad del Servicio</h3>
+                            <p>OrquestAr procura mantener el Servicio disponible de forma continua, pero no garantiza disponibilidad ininterrumpida. Pueden ocurrir interrupciones por mantenimiento, fallas técnicas o causas ajenas a su control (caídas de WhatsApp, MercadoPago u otros servicios de terceros).</p>
+                            <h3>7.3 Plataformas de terceros</h3>
+                            <p>OrquestAr integra servicios de terceros (WhatsApp Business API, MercadoPago, NocoDB, entre otros). Las condiciones, cambios de política o interrupciones de dichos servicios están fuera del control de OrquestAr y no generan responsabilidad a su cargo.</p>
+                            <h3>7.4 Decisiones comerciales</h3>
+                            <p>Las respuestas del asistente son orientativas. OrquestAr no es responsable por las decisiones que el Cliente o sus Clientes Finales adopten en base a la información provista por el sistema.</p>
+                        </div>
+
+                        <!-- Art 8 -->
+                        <div id="art8" class="reveal">
+                            <h2><span class="toc-num">8</span> Propiedad Intelectual</h2>
+                            <ul>
+                                <li>OrquestAr y todos sus componentes (software, diseño, marca, metodología) son propiedad de OrquestAr y están protegidos por las leyes de propiedad intelectual aplicables.</li>
+                                <li>El Cliente conserva la propiedad de los datos de su negocio (catálogo, conversaciones, historial de ventas) cargados en la plataforma.</li>
+                                <li>OrquestAr no puede utilizar el contenido del Cliente para fines distintos a la prestación del Servicio.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Art 9 -->
+                        <div id="art9" class="reveal">
+                            <h2><span class="toc-num">9</span> Portabilidad de Datos y Baja</h2>
+                            <p>Al cancelar el Servicio, el Cliente puede solicitar la exportación de sus datos (historial de conversaciones, ventas, catálogo) dentro de los <strong>30 días posteriores a la baja</strong>. Transcurrido ese plazo, OrquestAr procederá a eliminar de forma definitiva los datos asociados a la cuenta.</p>
+                        </div>
+
+                        <!-- Art 10 -->
+                        <div id="art10" class="reveal">
+                            <h2><span class="toc-num">10</span> Modificaciones a los Términos</h2>
+                            <p>OrquestAr puede modificar estos Términos en cualquier momento. Los cambios serán notificados al Cliente con un mínimo de <strong>15 días de anticipación</strong>. El uso continuado del Servicio implica la aceptación de los nuevos términos.</p>
+                        </div>
+
+                        <!-- Art 11 -->
+                        <div id="art11" class="reveal">
+                            <h2><span class="toc-num">11</span> Jurisdicción y Ley Aplicable</h2>
+                            <p>Estos Términos se rigen por la legislación vigente en la República Argentina. Ante cualquier controversia, las partes acuerdan someterse a la jurisdicción de los tribunales ordinarios competentes de la <strong>Ciudad Autónoma de Buenos Aires</strong>, renunciando a cualquier otro fuero que pudiera corresponder.</p>
+                        </div>
+
+                        <!-- Art 12 -->
+                        <div id="art12" class="reveal">
+                            <h2><span class="toc-num">12</span> Contacto</h2>
+                            <p>Para consultas, reclamos o ejercicio de derechos relacionados con estos Términos:</p>
+                            <a href="mailto:contacto@orquestar.space"
+                               class="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-full bg-brand-900/60 border border-brand-700 text-accent-400 font-medium text-sm hover:bg-brand-800 transition">
+                                <i class="ph-fill ph-envelope"></i>
+                                contacto@orquestar.space
+                            </a>
+                        </div>
+
+                    </div><!-- /legal-content -->
+
+                    <!-- CTA privacidad -->
+                    <div class="mt-14 p-6 rounded-2xl bg-brand-900/40 border border-brand-800 flex flex-col sm:flex-row items-center justify-between gap-4 reveal">
+                        <div>
+                            <p class="text-white font-semibold mb-1">¿Querés ver cómo manejamos tus datos?</p>
+                            <p class="text-slate-400 text-sm">Leé nuestra Política de Privacidad para conocer qué información recopilamos y cómo la protegemos.</p>
+                        </div>
+                        <a href="/privacidad.html"
+                           class="flex-shrink-0 flex items-center gap-2 px-6 py-2.5 rounded-full bg-brand-600 text-white font-semibold text-sm hover:bg-brand-500 transition whitespace-nowrap">
+                            <i class="ph-fill ph-shield-check"></i>
+                            Ver Política de Privacidad
+                        </a>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (idéntico al principal) -->
+    <footer class="bg-brand-950 py-12 border-t border-brand-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 md:gap-3 mb-4">
+                        <img src="/assets/img/logo.png" alt="OrquestAr" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none';">
+                        <span class="text-2xl font-bold text-white flex items-center">Orquest<span class="text-accent-500">Ar</span></span>
+                    </div>
+                    <p class="text-slate-400 mb-4 max-w-sm">Automatización inteligente para negocios que quieren crecer sin perder calidad de atención.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Producto</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="/#problema" class="hover:text-accent-500 transition-colors">Beneficios</a></li>
+                        <li><a href="/#flujo" class="hover:text-accent-500 transition-colors">Cómo funciona</a></li>
+                        <li><a href="/#crm" class="hover:text-accent-500 transition-colors">Panel CRM</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i class="ph-fill ph-whatsapp-logo text-green-400"></i> +54 9 11 6285-7653
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="ph-fill ph-envelope text-accent-500"></i>
+                            <a href="mailto:contacto@orquestar.space" class="hover:text-accent-400 transition">contacto@orquestar.space</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-brand-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2026 OrquestAr. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="/terminos.html" class="text-accent-400 font-medium">Términos y Condiciones</a>
+                    <a href="/privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/5491162857653?text=Hola,%20estoy%20viendo%20la%20página%20web%20y%20tengo%20una%20consulta" target="_blank" class="wp-float">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+        <span class="hidden sm:inline">Chateá con nosotros</span>
+    </a>
+
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled', 'py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('scrolled', 'py-2');
+                nav.classList.add('py-4');
+            }
+        });
+
+        // Reveal on scroll
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('active');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -40px 0px', threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Smooth scroll para TOC
+        document.querySelectorAll('a[href^="#art"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
