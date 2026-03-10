@@ -7,6 +7,7 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -255,7 +256,7 @@
     <nav id="navbar" class="fixed w-full z-50 glass-nav py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2 md:gap-3">
-                <img src="/assets/img/logo.png" alt="OrquestAr Logo" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none';">
+                <img src="/assets/img/logo.png" alt="OrquestAr Logo" class="h-8 md:h-10 w-auto object-contain">
                 <span id="logo-text" class="text-2xl font-bold tracking-tight text-white flex items-center">
                     Orquest<span class="text-accent-500">Ar</span>
                 </span>
@@ -450,24 +451,56 @@
 
                 <!-- Images Content Area -->
                 <div class="w-full lg:w-3/4">
-                    <div class="bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl p-2 md:p-4 shadow-black/50">
+                    <div class="bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl p-4 md:p-6 shadow-black/50">
                         <!-- Tab: Conversaciones -->
                         <div id="tab-conversaciones" class="crm-tab-content active">
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-users text-accent-500"></i> Clientes / Conversaciones
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Centralizá todos tus chats de WhatsApp en un solo lugar. Detectá automáticamente qué clientes tienen intención de compra y priorizá los seguimientos que convierten.
+                                </p>
+                            </div>
                             <img src="/assets/img/mensajes.PNG" onerror="this.src='mensajes.PNG'" alt="Vista de Conversaciones en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
                         
                         <!-- Tab: Stock -->
                         <div id="tab-stock" class="crm-tab-content">
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-package text-accent-500"></i> Stock
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Controlá tu inventario en tiempo real. Editá precios, cantidades y categorías al instante, con alertas visuales de stock bajo e importación/exportación en Excel.
+                                </p>
+                            </div>
                             <img src="/assets/img/stock.PNG" onerror="this.src='stock.PNG'" alt="Vista de Stock en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
                         
                         <!-- Tab: Ventas -->
                         <div id="tab-ventas" class="crm-tab-content">
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-currency-dollar text-accent-500"></i> Ventas
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Seguí cada venta, su estado y detalle de productos en una tabla clara y ordenable. Tu facturación siempre a la vista.
+                                </p>
+                            </div>
                             <img src="/assets/img/pagos.PNG" onerror="this.src='pagos.PNG'" alt="Vista de Ventas y Pagos en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
                         
                         <!-- Tab: Analytics -->
                         <div id="tab-analytics" class="crm-tab-content">
+                            <div class="mb-5">
+                                <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="ph-fill ph-chart-bar text-accent-500"></i> Analytics
+                                </h3>
+                                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                    Métricas de conversaciones y ventas con comparativas por período y un mapa de calor para saber cuándo están más activos tus clientes.
+                                </p>
+                            </div>
                             <img src="/assets/img/analytics.PNG" onerror="this.src='analytics.PNG'" alt="Vista de Analytics en el CRM" class="w-full h-auto rounded-xl shadow-lg border border-slate-800">
                         </div>
                     </div>
@@ -654,7 +687,7 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-2 md:gap-3 mb-4">
-                        <img src="/assets/img/logo.png" alt="OrquestAr" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none';">
+                        <img src="/assets/img/logo.png" alt="OrquestAr Logo" class="h-8 md:h-10 w-auto object-contain">
                         <span class="text-2xl font-bold text-white flex items-center">Orquest<span class="text-accent-500">Ar</span></span>
                     </div>
                     <p class="text-slate-400 mb-4 max-w-sm">Automatización inteligente para negocios que quieren crecer sin perder calidad de atención.</p>
