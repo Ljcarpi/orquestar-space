@@ -79,15 +79,23 @@
 
         /* WhatsApp Mockup Styles */
         .wa-phone {
-            width: 320px;
+            width: 100%;
+            max-width: 320px;
             height: 600px;
             border-radius: 40px;
-            border: 12px solid #0f172a; /* Borde oscuro */
-            background: #efeae2; /* Default WA background */
+            border: 12px solid #0f172a;
+            background: #efeae2;
             position: relative;
             overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
+        .wa-phone-sm {
+            max-width: 280px;
+            height: 480px;
+            border-width: 10px;
+            border-radius: 35px;
+        }
+
         .wa-header {
             background: #075E54;
             color: white;
@@ -96,7 +104,11 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 10;
+            position: relative;
         }
+        .wa-phone-sm .wa-header { padding: 10px 15px; }
+
         .wa-chat-container {
             padding: 15px;
             height: calc(100% - 130px);
@@ -105,6 +117,8 @@
             flex-direction: column;
             gap: 10px;
         }
+        .wa-phone-sm .wa-chat-container { height: calc(100% - 110px); }
+
         /* Ocultar scrollbar en el mockup */
         .wa-chat-container::-webkit-scrollbar { display: none; }
         
@@ -117,7 +131,10 @@
             animation: fadeIn 0.3s ease-out forwards;
             opacity: 0;
             transform: translateY(10px);
+            word-wrap: break-word;
         }
+        .wa-phone-sm .wa-bubble { font-size: 0.8rem; padding: 6px 10px; }
+
         .wa-in {
             background: white;
             color: #1e293b;
@@ -132,6 +149,18 @@
             border-top-right-radius: 0;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
+
+        /* Identificadores de Cliente/Asistente */
+        .wa-author {
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+            display: block;
+        }
+        .wa-phone-sm .wa-author { font-size: 0.65rem; }
+        .wa-in .wa-author { color: #64748b; } /* Gris para el cliente */
+        .wa-out .wa-author { color: #047857; } /* Verde para el bot */
+
         .typing-indicator {
             background: white;
             padding: 10px 15px;
@@ -222,7 +251,6 @@
     <nav id="navbar" class="fixed w-full z-50 glass-nav py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2 md:gap-3">
-                <!-- Espacio para el logo y texto -->
                 <img src="/assets/img/logo.png" alt="OrquestAr Logo" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none';">
                 <span id="logo-text" class="text-2xl font-bold tracking-tight text-white flex items-center">
                     Orquest<span class="text-accent-500">Ar</span>
@@ -244,7 +272,6 @@
 
     <!-- Hero Section -->
     <section class="pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-pattern relative">
-        <!-- Decoraciones de fondo Hero -->
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600 rounded-full mix-blend-screen filter blur-[120px] opacity-40 animate-pulse-slow"></div>
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20"></div>
 
@@ -285,7 +312,7 @@
                                 <div class="text-xs text-whatsapp-light">En línea</div>
                             </div>
                         </div>
-                        <div class="wa-chat-container" id="chat-container">
+                        <div class="wa-chat-container" id="chat-hero">
                             <!-- Messages will be injected by JS -->
                         </div>
                         <div class="absolute bottom-0 w-full bg-[#f0f2f5] p-3 flex gap-2 items-center border-t border-slate-300">
@@ -310,7 +337,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
+                <!-- Cards... -->
                 <div class="bg-brand-950 border border-brand-800 rounded-2xl p-8 hover:shadow-xl hover:border-brand-600 transition-all reveal">
                     <div class="w-14 h-14 bg-brand-900 border border-brand-700 text-accent-400 rounded-xl flex items-center justify-center text-3xl mb-6 shadow-inner">
                         <i class="ph-fill ph-clock-user"></i>
@@ -318,7 +345,6 @@
                     <h3 class="text-xl font-bold text-white mb-3">Tiempo Perdido</h3>
                     <p class="text-slate-400">Un empleado dedica en promedio 3hs diarias solo a responder consultas repetitivas de stock, precios y horarios.</p>
                 </div>
-                <!-- Card 2 -->
                 <div class="bg-brand-950 border border-brand-800 rounded-2xl p-8 hover:shadow-xl hover:border-brand-600 transition-all reveal" style="transition-delay: 100ms;">
                     <div class="w-14 h-14 bg-brand-900 border border-brand-700 text-accent-400 rounded-xl flex items-center justify-center text-3xl mb-6 shadow-inner">
                         <i class="ph-fill ph-smiley-sad"></i>
@@ -326,7 +352,6 @@
                     <h3 class="text-xl font-bold text-white mb-3">Ventas Perdidas</h3>
                     <p class="text-slate-400">Clientes sin respuesta fuera del horario laboral. Quien escribe a las 10 PM no espera a mañana, compra en otro lado.</p>
                 </div>
-                <!-- Card 3 -->
                 <div class="bg-brand-950 border border-brand-800 rounded-2xl p-8 hover:shadow-xl hover:border-brand-600 transition-all reveal" style="transition-delay: 200ms;">
                     <div class="w-14 h-14 bg-brand-900 border border-brand-700 text-accent-400 rounded-xl flex items-center justify-center text-3xl mb-6 shadow-inner">
                         <i class="ph-fill ph-trend-down"></i>
@@ -340,7 +365,6 @@
 
     <!-- Flujo de Venta Section -->
     <section id="flujo" class="py-24 bg-brand-950 text-white relative overflow-hidden">
-        <!-- Decoraciones de fondo -->
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-600 rounded-full mix-blend-screen filter blur-[100px] opacity-20"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-accent-500 rounded-full mix-blend-screen filter blur-[100px] opacity-10"></div>
         
@@ -352,11 +376,9 @@
             </div>
 
             <div class="relative">
-                <!-- Línea conectora (Desktop) -->
                 <div class="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-brand-600 to-accent-500 transform -translate-y-1/2 z-0 opacity-50"></div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
-                    <!-- Paso 1 -->
                     <div class="flex flex-col items-center text-center reveal">
                         <div class="w-20 h-20 bg-brand-900 border-4 border-brand-800 rounded-full flex items-center justify-center text-3xl mb-4 text-accent-400 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                             <i class="ph-fill ph-chat-text"></i>
@@ -364,7 +386,6 @@
                         <h4 class="font-bold text-lg mb-2 text-white">1. Cliente escribe</h4>
                         <p class="text-sm text-slate-400">Pregunta por WhatsApp en cualquier horario.</p>
                     </div>
-                    <!-- Paso 2 -->
                     <div class="flex flex-col items-center text-center reveal" style="transition-delay: 100ms;">
                         <div class="w-20 h-20 bg-brand-900 border-4 border-brand-800 rounded-full flex items-center justify-center text-3xl mb-4 text-accent-400 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                             <i class="ph-fill ph-robot"></i>
@@ -372,7 +393,6 @@
                         <h4 class="font-bold text-lg mb-2 text-white">2. IA atiende</h4>
                         <p class="text-sm text-slate-400">Responde dudas y consulta stock en tiempo real.</p>
                     </div>
-                    <!-- Paso 3 -->
                     <div class="flex flex-col items-center text-center reveal" style="transition-delay: 200ms;">
                         <div class="w-20 h-20 bg-brand-900 border-4 border-brand-800 rounded-full flex items-center justify-center text-3xl mb-4 text-accent-400 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                             <i class="ph-fill ph-credit-card"></i>
@@ -380,7 +400,6 @@
                         <h4 class="font-bold text-lg mb-2 text-white">3. Pago online</h4>
                         <p class="text-sm text-slate-400">Genera y envía link de MercadoPago automáticamente.</p>
                     </div>
-                    <!-- Paso 4 -->
                     <div class="flex flex-col items-center text-center reveal" style="transition-delay: 300ms;">
                         <div class="w-20 h-20 bg-brand-900 border-4 border-brand-800 rounded-full flex items-center justify-center text-3xl mb-4 text-accent-400 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                             <i class="ph-fill ph-database"></i>
@@ -388,7 +407,6 @@
                         <h4 class="font-bold text-lg mb-2 text-white">4. Registro CRM</h4>
                         <p class="text-sm text-slate-400">Actualiza stock y guarda datos del cliente en el panel.</p>
                     </div>
-                    <!-- Paso 5 -->
                     <div class="flex flex-col items-center text-center reveal" style="transition-delay: 400ms;">
                         <div class="w-20 h-20 bg-brand-900 border-4 border-brand-800 rounded-full flex items-center justify-center text-3xl mb-4 text-accent-400 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                             <i class="ph-fill ph-receipt"></i>
@@ -403,13 +421,14 @@
 
     <!-- CRM Simulator Section (Dark Mode) -->
     <section id="crm" class="py-24 bg-brand-900 border-t border-brand-800">
+        <!-- ... (Contenido del CRM igual) ... -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 reveal">
                 <h2 class="text-3xl font-bold text-white mb-4">Toma el control con nuestro Panel CRM</h2>
                 <p class="text-lg text-slate-400">Visualiza interacciones, gestiona tu inventario y analiza tus ventas desde una única plataforma amigable.</p>
             </div>
 
-            <!-- Dashboard Mockup (Dark UI) -->
+            <!-- Dashboard Mockup -->
             <div class="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 overflow-hidden reveal shadow-black/50">
                 <!-- Top Bar -->
                 <div class="bg-slate-950 text-slate-300 px-6 py-3 flex justify-between items-center border-b border-slate-800">
@@ -442,7 +461,6 @@
 
                     <!-- Content Area -->
                     <div class="flex-1 p-6 bg-[#0B1120] overflow-x-auto text-slate-300">
-                        
                         <!-- Tab: Conversaciones -->
                         <div id="tab-conversaciones" class="crm-tab-content active">
                             <div class="flex justify-between items-center mb-6">
@@ -557,7 +575,6 @@
                                     <p class="text-3xl font-bold text-green-400">124</p>
                                 </div>
                             </div>
-                            <!-- Fake Chart (Dark Mode) -->
                             <div class="w-full h-32 bg-slate-900 border border-slate-800 rounded-xl flex items-end px-4 gap-2 pb-2 pt-8">
                                 <div class="w-full bg-brand-800 rounded-t-sm h-[40%] hover:bg-brand-600 transition"></div>
                                 <div class="w-full bg-brand-700 rounded-t-sm h-[60%] hover:bg-brand-500 transition"></div>
@@ -596,6 +613,88 @@
                     <div class="text-4xl md:text-5xl font-extrabold mb-2 text-accent-400">+<span class="counter" data-target="35">0</span>%</div>
                     <div class="text-brand-200 font-medium text-sm md:text-base">Conversión Extra Promedio</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: Casos de Uso Multi-Industria -->
+    <section class="py-24 bg-brand-900 relative border-b border-brand-800 overflow-hidden">
+        <!-- Fondos decorativos -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-500 rounded-full mix-blend-screen filter blur-[150px] opacity-10"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-500 rounded-full mix-blend-screen filter blur-[150px] opacity-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-accent-500 font-semibold tracking-wider uppercase text-sm">Adaptable a tu negocio</span>
+                <h2 class="text-3xl font-bold text-white mt-2 mb-4">Un experto de ventas para cada rubro</h2>
+                <p class="text-slate-400">Entrenamos a la IA con tu catálogo, tus reglas de negocio y tu tono de voz para que atienda exactamente como lo harías tú.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-8 justify-items-center">
+                
+                <!-- Mockup 1: Ferretería -->
+                <div class="flex flex-col items-center w-full reveal" style="transition-delay: 100ms;">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="ph-fill ph-wrench text-accent-500"></i> Ferretería
+                    </h3>
+                    <div class="wa-phone wa-phone-sm bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-cover bg-center shadow-xl shadow-black/40">
+                        <div class="wa-header">
+                            <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-900 font-bold text-sm">F</div>
+                            <div>
+                                <div class="font-bold text-sm">FerreBot 🤖</div>
+                                <div class="text-[10px] text-whatsapp-light">En línea</div>
+                            </div>
+                        </div>
+                        <div class="wa-chat-container" id="chat-ferreteria"></div>
+                        <div class="absolute bottom-0 w-full bg-[#f0f2f5] p-2 flex gap-2 items-center border-t border-slate-300">
+                            <div class="flex-1 bg-white rounded-full px-3 py-1.5 text-xs text-slate-400">Mensaje...</div>
+                            <div class="w-8 h-8 bg-whatsapp-dark rounded-full flex items-center justify-center text-white"><i class="ph-fill ph-paper-plane-right text-sm"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mockup 2: Computación -->
+                <div class="flex flex-col items-center w-full reveal" style="transition-delay: 200ms;">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="ph-fill ph-laptop text-accent-500"></i> Computación
+                    </h3>
+                    <div class="wa-phone wa-phone-sm bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-cover bg-center shadow-xl shadow-black/40">
+                        <div class="wa-header">
+                            <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-900 font-bold text-sm">T</div>
+                            <div>
+                                <div class="font-bold text-sm">TechBot 💻</div>
+                                <div class="text-[10px] text-whatsapp-light">En línea</div>
+                            </div>
+                        </div>
+                        <div class="wa-chat-container" id="chat-computacion"></div>
+                        <div class="absolute bottom-0 w-full bg-[#f0f2f5] p-2 flex gap-2 items-center border-t border-slate-300">
+                            <div class="flex-1 bg-white rounded-full px-3 py-1.5 text-xs text-slate-400">Mensaje...</div>
+                            <div class="w-8 h-8 bg-whatsapp-dark rounded-full flex items-center justify-center text-white"><i class="ph-fill ph-paper-plane-right text-sm"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mockup 3: Gastronomía -->
+                <div class="flex flex-col items-center w-full reveal" style="transition-delay: 300ms;">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="ph-fill ph-pizza text-accent-500"></i> Gastronomía
+                    </h3>
+                    <div class="wa-phone wa-phone-sm bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-cover bg-center shadow-xl shadow-black/40">
+                        <div class="wa-header">
+                            <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-900 font-bold text-sm">G</div>
+                            <div>
+                                <div class="font-bold text-sm">GastroBot 🍕</div>
+                                <div class="text-[10px] text-whatsapp-light">En línea</div>
+                            </div>
+                        </div>
+                        <div class="wa-chat-container" id="chat-gastronomia"></div>
+                        <div class="absolute bottom-0 w-full bg-[#f0f2f5] p-2 flex gap-2 items-center border-t border-slate-300">
+                            <div class="flex-1 bg-white rounded-full px-3 py-1.5 text-xs text-slate-400">Mensaje...</div>
+                            <div class="w-8 h-8 bg-whatsapp-dark rounded-full flex items-center justify-center text-white"><i class="ph-fill ph-paper-plane-right text-sm"></i></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -654,7 +753,6 @@
     <!-- CTA Section -->
     <section class="py-24 bg-brand-800 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <!-- Resplandor Dorado de fondo -->
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500 rounded-full mix-blend-screen filter blur-[150px] opacity-20"></div>
         
         <div class="max-w-4xl mx-auto px-4 relative z-10 reveal">
@@ -704,7 +802,6 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/5491162857653?text=Hola,%20estoy%20viendo%20la%20página%20web%20y%20tengo%20una%20consulta" target="_blank" class="wp-float">
         <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
         <span class="hidden sm:inline">Chateá con nosotros</span>
@@ -712,21 +809,19 @@
 
     <!-- Scripts -->
     <script>
-        // 1. Navbar Scroll Effect
+        // 1. Navbar Scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 20) {
-                nav.classList.add('scrolled');
+                nav.classList.add('scrolled', 'py-2');
                 nav.classList.remove('py-4');
-                nav.classList.add('py-2');
             } else {
-                nav.classList.remove('scrolled');
+                nav.classList.remove('scrolled', 'py-2');
                 nav.classList.add('py-4');
-                nav.classList.remove('py-2');
             }
         });
 
-        // 2. Intersection Observer for Scroll Animations (Reveal)
+        // 2. Observer Reveal
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -736,96 +831,97 @@
                 }
             });
         }, { rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
-        
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // 3. Counter Animation on Scroll
+        // 3. Counter Animation
         const counters = document.querySelectorAll('.counter');
         let hasCounted = false;
-        
         const countUp = () => {
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000; // ms
-                const increment = target / (duration / 16); // 60fps
-                
                 let current = 0;
                 const updateCounter = () => {
-                    current += increment;
+                    current += target / (2000 / 16);
                     if (current < target) {
                         counter.innerText = Math.ceil(current);
                         requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.innerText = target;
-                    }
+                    } else counter.innerText = target;
                 };
                 updateCounter();
             });
         };
-
         const statsSection = document.getElementById('stats-container');
-        const statsObserver = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting && !hasCounted) {
-                countUp();
-                hasCounted = true;
-            }
-        });
-        if(statsSection) statsObserver.observe(statsSection);
+        if(statsSection) {
+            new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting && !hasCounted) { countUp(); hasCounted = true; }
+            }).observe(statsSection);
+        }
 
-        // 4. CRM Tabs Logic
+        // 4. CRM Tabs
         function openTab(evt, tabName) {
-            // Hide all tab content
-            const tabcontent = document.getElementsByClassName("crm-tab-content");
-            for (let i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            // Remove active class from buttons
-            const tablinks = document.getElementsByClassName("crm-tab-btn");
-            for (let i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.querySelectorAll(".crm-tab-content").forEach(el => el.classList.remove("active"));
+            document.querySelectorAll(".crm-tab-btn").forEach(el => el.classList.remove("active"));
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
 
-        // 5. FAQ Accordion Logic
+        // 5. FAQ
         function toggleFaq(button) {
             const item = button.parentElement;
-            const answer = item.querySelector('.faq-answer');
             const isActive = item.classList.contains('active');
-            
-            // Close all
             document.querySelectorAll('.faq-item').forEach(el => {
                 el.classList.remove('active');
                 el.querySelector('.faq-answer').style.maxHeight = null;
             });
-
-            // If wasn't active, open it
             if (!isActive) {
                 item.classList.add('active');
+                const answer = item.querySelector('.faq-answer');
                 answer.style.maxHeight = answer.scrollHeight + "px";
             }
         }
 
-        // 6. WhatsApp Chat Loop Animation
-        const chatScript = [
-            { type: 'in', text: '¡Hola! Quería saber si tienen stock de las zapatillas urbanas modelo X en talle 42.' },
-            { type: 'out', text: '¡Hola! 👋 Soy el asistente virtual. Déjame revisar el stock por ti...' },
-            { type: 'out', text: '¡Sí! Tenemos 2 pares disponibles en talle 42 color negro. El precio es $45.000. ¿Te gustaría que te genere el link de pago?' },
-            { type: 'in', text: 'Genial. Sí, pasame el link por favor.' },
-            { type: 'out', text: 'Perfecto. Aquí tienes el link de MercadoPago: mpago.la/orquestar 🔗' },
-            { type: 'out', text: 'Una vez abonado, te pediremos los datos de envío. ¡Gracias!' },
-            { type: 'out', text: '¡Pago Recibido! ✅ Te acercamos tu factura. ¿Pasas a retirar por el local o querés envío?' },
-            { type: 'in', text: 'Retiro por el local gracias!' }
-        ];
-
-        const chatContainer = document.getElementById('chat-container');
+        // 6. WhatsApp Chat Logic (Multi-container con Identificadores)
         
+        // Diccionario con todos los scripts de chat
+        const chatScripts = {
+            'chat-hero': [
+                { type: 'in', text: '¡Hola! Quería saber si tienen stock de las zapatillas urbanas modelo X en talle 42.' },
+                { type: 'out', text: '¡Hola! 👋 Déjame revisar el stock por ti...' },
+                { type: 'out', text: '¡Sí! Tenemos 2 pares disponibles. El precio es $45.000. ¿Te gustaría que te genere el link de pago?' },
+                { type: 'in', text: 'Genial. Sí, pasame el link por favor.' },
+                { type: 'out', text: 'Perfecto. Aquí tienes el link de MercadoPago: mpago.la/orquestar 🔗' },
+                { type: 'out', text: '¡Pago Recibido! ✅ Te acercamos tu factura. ¿Pasas a retirar por el local o querés envío?' },
+                { type: 'in', text: 'Retiro por el local gracias!' }
+            ],
+            'chat-ferreteria': [
+                { type: 'in', text: 'Hola, necesito un taladro percutor de 600W, ¿tienen?' },
+                { type: 'out', text: '¡Hola! 👋 Sí, tenemos el Taladro Black+Decker 600W en stock. Precio: $65.000.' },
+                { type: 'in', text: '¿Sirve para pared de hormigón?' },
+                { type: 'out', text: 'Sí, su función percutora es ideal para hormigón y mampostería. ¿Te genero el link de pago?' },
+                { type: 'in', text: 'Dale, buenísimo.' },
+                { type: 'out', text: 'Aquí tienes: mpago.la/ferre 🔗. ¡Avisanos cuando abones!' }
+            ],
+            'chat-computacion': [
+                { type: 'in', text: 'Buenas, busco una notebook para diseño gráfico. Presupuesto 1.5M.' },
+                { type: 'out', text: '¡Hola! 💻 Te recomiendo la Lenovo IdeaPad (Ryzen 7, 16GB RAM). Está a $1.350.000.' },
+                { type: 'in', text: '¿Tiene placa de video dedicada?' },
+                { type: 'out', text: 'Sí, incluye una RTX 3050. Corre perfectamente Illustrator y Premiere.' },
+                { type: 'in', text: 'Me sirve. ¿Hacen envíos a Córdoba?' },
+                { type: 'out', text: 'Hacemos envíos gratis a todo el país. ¿Querés que armemos el pedido?' }
+            ],
+            'chat-gastronomia': [
+                { type: 'in', text: 'Hola, quería pedir 2 docenas de empanadas para las 21hs.' },
+                { type: 'out', text: '¡Hola! 🥟 ¡Claro! ¿De qué sabores te preparamos las 24 empanadas?' },
+                { type: 'in', text: '12 de carne y 12 de jamón y queso.' },
+                { type: 'out', text: 'Perfecto. Serían $18.000 en total. ¿Abonas en efectivo o por transferencia?' },
+                { type: 'in', text: 'Transferencia.' },
+                { type: 'out', text: 'Genial, envianos el comprobante al alias: EMPANADAS.OK y agendamos tu pedido para las 21hs. 🛵' }
+            ]
+        };
+
         const createTypingIndicator = () => {
             const div = document.createElement('div');
             div.className = 'typing-indicator';
-            div.id = 'typing-indicator';
             div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
             return div;
         };
@@ -833,47 +929,58 @@
         const createMessage = (msg) => {
             const div = document.createElement('div');
             div.className = `wa-bubble ${msg.type === 'in' ? 'wa-in' : 'wa-out'}`;
-            div.innerText = msg.text;
+            
+            // Agregamos el identificador de autor
+            const author = document.createElement('span');
+            author.className = 'wa-author';
+            author.innerText = msg.type === 'in' ? 'Cliente' : 'Asistente Virtual';
+            
+            const text = document.createElement('span');
+            text.innerText = msg.text;
+
+            div.appendChild(author);
+            div.appendChild(text);
             return div;
         };
 
         const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-        async function playChatLoop() {
-            chatContainer.innerHTML = ''; // Clear chat
+        async function playChatLoop(containerId) {
+            const container = document.getElementById(containerId);
+            const script = chatScripts[containerId];
+            if (!container || !script) return;
+
+            container.innerHTML = ''; 
             
-            for (let i = 0; i < chatScript.length; i++) {
-                const msg = chatScript[i];
+            for (let i = 0; i < script.length; i++) {
+                const msg = script[i];
                 
-                // Show typing indicator
                 const typing = createTypingIndicator();
                 if(msg.type === 'out') {
                     typing.style.alignSelf = 'flex-end';
                     typing.style.backgroundColor = '#dcf8c6';
                 }
-                chatContainer.appendChild(typing);
-                chatContainer.scrollTop = chatContainer.scrollHeight;
+                container.appendChild(typing);
+                container.scrollTop = container.scrollHeight;
                 
-                // Wait simulated typing time
-                const typingTime = msg.text.length * 40; // faster typing
+                const typingTime = msg.text.length * 40; 
                 await sleep(Math.min(Math.max(typingTime, 800), 2000)); 
                 
-                // Remove typing, add message
-                document.getElementById('typing-indicator').remove();
-                chatContainer.appendChild(createMessage(msg));
-                chatContainer.scrollTop = chatContainer.scrollHeight;
+                container.removeChild(typing);
+                container.appendChild(createMessage(msg));
+                container.scrollTop = container.scrollHeight;
                 
-                // Wait before next message
                 await sleep(1500); 
             }
             
-            // Wait at the end, then restart
             await sleep(4000);
-            playChatLoop();
+            playChatLoop(containerId);
         }
 
-        // Start chat loop
-        setTimeout(playChatLoop, 1000);
+        // Iniciar todos los bucles
+        setTimeout(() => {
+            Object.keys(chatScripts).forEach(id => playChatLoop(id));
+        }, 1000);
 
     </script>
 </body>
