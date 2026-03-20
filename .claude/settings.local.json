@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc \"C:/Users/user/Downloads/Asistente_Ventas_Virtual_Comercial.docx\" -o /tmp/doc_output.md)",
+      "Read(//tmp/**)",
+      "Bash(pandoc \"C:\\\\Users\\\\user\\\\Desktop\\\\WEB_ORQUESTAR\\\\Asistente_Ventas_Virtual_Comercial.docx\" -o /tmp/doc_output.md)",
+      "Bash(python:*)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(pip install:*)",
+      "Bash(timeout:*)",
+      "Bash(find /c/Users/user/Desktop/WEB_ORQUESTAR/src/components/landing -type f -name *.tsx -o -name *.jsx -o -name *.ts -o -name *.js)",
+      "Bash(ls:*)"
+    ]
+  }
+}

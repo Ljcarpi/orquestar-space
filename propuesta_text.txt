@@ -1,0 +1,252 @@
+OrquestAr
+Asistente de Ventas Virtual + Panel CRM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Propuesta Comercial
+Automatizá tu atención al cliente. Vendé mientras dormís.
+¿Qué es OrquestAr?
+OrquestAr es una solución integral de automatización comercial que combina un 
+asistente de ventas con inteligencia artificial
+ para WhatsApp con un 
+panel CRM en tiempo real
+, diseñada para cualquier negocio que quiera vender más sin contratar más personal.
+El sistema atiende a tus clientes, responde consultas, muestra productos, gestiona el cobro con MercadoPago y registra cada interacción — las 24 horas del día, los 7 días de la semana.
+Todo el sistema es 
+completamente personalizable
+ según el rubro, el tono de comunicación y los procesos propios de cada negocio.
+¿Sabías que...
+Un empleado dedica en promedio 3 horas diarias solo a responder mensajes de WhatsApp.
+Eso equivale a más de 60 horas mensuales — y en muchos casos, parte de esas consultas llegan fuera del horario laboral y quedan sin respuesta.
+El problema que resolvemos
+Los negocios de hoy enfrentan una presión constante: más canales, más clientes, pero los mismos recursos humanos. El resultado es siempre el mismo:
+⏰
+Tiempo perdido en consultas repetitivas
+&quot;¿Tienen stock de X?&quot; · &quot;¿Cuánto sale Y?&quot; · &quot;¿Cómo hago el pedido?&quot; — las mismas preguntas, decenas de veces por día.
+😴
+Clientes sin respuesta fuera del horario
+Quien escribe a las 10 de la noche no espera hasta mañana: se va a la competencia.
+📉
+Ventas que se pierden por demoras
+Un cliente esperando respuesta más de 5 minutos tiene 10 veces menos chances de completar la compra.
+🗂️
+Sin registro ni visibilidad del negocio
+Sin datos: ¿qué productos consultan más? ¿qué horarios hay más actividad? ¿cuántas consultas se convierten en ventas?
+Cómo funciona
+OrquestAr se integra con tu número de WhatsApp existente y funciona como un vendedor virtual inteligente que conoce tu negocio a fondo. El flujo es simple:
+01
+Cliente escribe
+por WhatsApp
+→
+02
+IA interpreta
+la consulta
+→
+03
+Responde con
+stock y precios
+→
+04
+Genera link
+de pago
+→
+05
+Registra la venta
+en el CRM
+Tecnología detrás del sistema
+OrquestAr está construido sobre una arquitectura moderna de automatización que conecta múltiples servicios en tiempo real:
+Procesamiento de lenguaje natural para entender consultas escritas de forma libre
+Base de datos de productos y precios sincronizada (NocoDB) con caché inteligente en Redis para respuestas instantáneas
+Integración nativa con MercadoPago para generar y trackear cobros directamente desde la conversación
+Sistema de gestión de errores con alertas en tiempo real para el equipo
+Panel CRM web accesible desde cualquier dispositivo, sin instalaciones
+Funcionalidades del Asistente
+Atención al cliente 24/7
+El asistente responde de forma automática e inmediata a cualquier hora, sin importar el volumen de consultas simultáneas. No se cansa, no tiene días libres y no comete errores por distracción.
+💬
+Consultas de stock y precios en tiempo real
+Responde al instante con disponibilidad y precio actualizado, directamente desde tu base de datos.
+🔍
+Búsqueda de productos inteligente
+Entiende sinónimos, variaciones y consultas imprecisas. Si el cliente escribe &quot;pintura blanca para exterior&quot;, el bot sabe qué mostrar.
+🛒
+Gestión del proceso de compra
+Guía al cliente desde la consulta hasta el pago en un solo hilo de conversación.
+💳
+Cobro integrado con MercadoPago
+Genera links de pago personalizados y hace el seguimiento del estado (aprobado, pendiente, rechazado) de forma automática.
+🤖
+Respuestas a preguntas frecuentes (FAQ)
+Responde consultas sobre horarios, formas de pago, envíos, garantías y cualquier información que necesites configurar.
+📋
+Recopilación de datos del cliente
+Nombre, número, historial de compras — todo queda registrado automáticamente.
+Dato de impacto
+Los negocios que automatizan su atención por WhatsApp reportan hasta un 35% de incremento en conversión de consultas a ventas, principalmente por la velocidad de respuesta y la disponibilidad horaria extendida.
+Una sola venta concretada fuera del horario habitual puede representar la diferencia entre que el sistema se pague solo en el mes.
+Panel CRM en Tiempo Real
+Incluido en todos los planes, el panel CRM de OrquestAr te da visibilidad total sobre lo que pasa en tu negocio. Accesible desde el navegador, sin instalaciones.
+Módulo de Conversaciones
+Visualizá en tiempo real todos los chats activos con tus clientes. El panel detecta automáticamente los clientes con intención de compra y los resalta para que puedas intervenir si lo necesitás.
+Historial completo de cada conversación
+Indicador de clientes &quot;calientes&quot; con intención de compra reciente (últimos 7 días)
+Métricas por cliente: total de mensajes, fecha del último contacto
+Búsqueda y filtrado instantáneo
+Módulo de Stock
+Tu catálogo de productos siempre actualizado, editable directamente desde el panel.
+Tabla completa con código, nombre, marca, categoría, precio y stock
+Alertas visuales de stock bajo o agotado
+Edición inline de precios y cantidades sin salir del panel
+Filtros por categoría y búsqueda por producto o marca
+Exportación a CSV con un clic
+Indicadores de totales: productos activos, sin stock, stock bajo
+Módulo de Ventas
+Registro completo de todas las transacciones procesadas por el asistente.
+Historial de órdenes con estado (aprobado, pendiente, rechazado)
+Detalle por cliente, producto, monto y fecha
+Búsqueda por cliente, nombre de producto o ID de orden
+Módulo de Analytics
+Métricas clave del negocio con comparación de períodos, para tomar decisiones basadas en datos.
+Mensajes
+Volumen por período
+Clientes
+Nuevos por período
+Ingresos
+Ventas aprobadas
+Tiempo
+Respuesta promedio
+Gráfico de actividad del bot: mensajes por día
+Mapa de calor horario: a qué hora consultan más tus clientes
+Top categorías más consultadas
+Gráfico de ingresos por día
+Tasa de conversión: mensajes a órdenes aprobadas
+Comparación automática con el período anterior
+Sin OrquestAr vs. Con OrquestAr
+Sin OrquestAr
+Con OrquestAr ✓
+Respuestas en 30-120 minutos
+Respuesta instantánea, 24/7
+Sin atención fuera del horario
+Atención permanente, 365 días al año
+3+ horas/día respondiendo WhatsApp
+0 horas: el bot lo gestiona todo
+Ventas perdidas por demora o ausencia
+Ninguna consulta sin respuesta
+Sin registro de conversaciones
+Historial completo en el CRM
+Precios y stock actualizados manualmente
+Sincronización automática en tiempo real
+Sin datos de comportamiento del cliente
+Analytics completo con tendencias y comparativas
+Proceso de cobro manual o por separado
+MercadoPago integrado en la conversación
+Escalabilidad limitada al equipo disponible
+Ilimitado: atiende cientos de chats en simultáneo
+¿Para qué rubros funciona?
+OrquestAr fue diseñado como una solución 
+adaptable a cualquier industria
+ que venda productos o servicios y use WhatsApp como canal de comunicación con sus clientes. Algunos ejemplos:
+🔧 Ferreterías y materiales
+👗 Indumentaria y calzado
+🍕 Gastronomía y delivery
+🌿 Dietéticas y salud
+🖥️ Tecnología e informática
+🏠 Hogar y decoración
+💄 Cosmética y belleza
+⚽ Deportes y artículos
+📚 Librerías y papelerías
+Personalización a Medida
+OrquestAr no es un chatbot genérico. Cada implementación es 
+configurada específicamente para el negocio del cliente
+. Esto significa que el asistente habla con la voz de tu marca, conoce tu catálogo y respeta tus procesos.
+🗣️
+Tono y personalidad del asistente
+Formal, amigable, técnico o descontracturado. El bot habla como vos querés que hable tu negocio.
+📦
+Catálogo y categorías propias
+Cargamos tu base de productos, marcas, precios y variantes (talle, color, medida) según tu estructura real.
+❓
+Preguntas frecuentes personalizadas
+Horarios, políticas de devolución, formas de pago, zonas de entrega — cualquier info que necesites que el bot responda.
+💳
+Flujo de compra adaptado
+Pedidos con retiro en local, envío a domicilio, presupuestos, reservas o cualquier otro flujo comercial.
+🔔
+Alertas y notificaciones a medida
+Configuramos qué eventos te notifican a vos como dueño: nuevas órdenes, errores, clientes con intención de compra, etc.
+🔗
+Integraciones adicionales
+Conexión con tu sistema de stock existente, ERP, hoja de cálculo o cualquier herramienta que ya uses.
+Proceso de implementación
+Reunión de relevamiento: entendemos tu negocio, flujos y necesidades
+Configuración y carga de datos: catálogo, FAQ, flujos de compra
+Prueba piloto: período de testing con ajustes en tiempo real
+Lanzamiento y soporte continuo: el sistema queda activo con acompañamiento
+Los Números que Importan
+Antes de hablar de inversión, hablemos del costo de no automatizar:
+3 hs
+promedio diario en WhatsApp por empleado
+66 hs
+mensuales de trabajo manual en atención
+~35%
+más conversión con respuesta inmediata
+24/7
+disponibilidad con OrquestAr
+Cálculo real de ROI
+Si tu negocio pierde 2 ventas por semana por consultas que llegaron fuera de horario o que quedaron sin respuesta, y cada venta promedia $5.000, eso representa $40.000 mensuales de ingresos que se van a la competencia.
+OrquestAr se paga solo con recuperar apenas una fracción de esas ventas perdidas.
+Otros beneficios medibles
+Reducción del tiempo de respuesta de horas a segundos
+Liberación de entre 2 y 4 horas diarias del equipo para tareas de mayor valor
+Incremento en ticket promedio: el bot puede sugerir productos complementarios automáticamente
+Mejor experiencia del cliente: respuesta coherente, completa y siempre disponible
+Datos reales del negocio: qué se consulta más, cuándo, qué convierte y qué no
+Escalabilidad sin costo adicional: más volumen, mismo precio
+Planes y Contratación
+OrquestAr funciona como suscripción mensual, lo que significa que siempre tenés el sistema actualizado, con soporte técnico incluido y sin costos de mantenimiento inesperados.
+Starter
+Para empezar
+Business
+Más popular
+Enterprise
+A tu medida
+Consultá precio →
+Consultá precio →
+Cotización personalizada
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+Hasta 200 items
+Ilimitado
+Ilimitado
+Básico
+Completo
+Completo + custom
+Hasta 20 respuestas
+Ilimitado
+Ilimitado
+Email
+Email + WhatsApp
+Dedicado
+—
+1 integración
+A medida
+Estándar
+Avanzada
+Total
+¿No sabés qué plan elegir?
+Contactanos y en una breve llamada analizamos tu negocio y te recomendamos la mejor opción. Sin compromiso.
+El Próximo Paso
+Cada día que un cliente escribe a tu negocio fuera de horario y no recibe respuesta es una oportunidad perdida. OrquestAr resuelve eso hoy, con una implementación rápida y resultados medibles desde el primer mes.
+La automatización inteligente ya no es una ventaja competitiva — es una necesidad para cualquier negocio que quiera crecer sin perder calidad de atención.
+Empezá hoy
+Pedí tu demo gratuita y vé cómo funciona OrquestAr con tu propio catálogo
+Contacto
+📧 info@orquestar.ar
+💬 WhatsApp disponible
+🌐 www.orquestar.ar
+OrquestAr — Automatizá tu negocio. Vendé sin límites.
