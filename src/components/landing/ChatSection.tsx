@@ -308,8 +308,8 @@ function ChatCard({ chat, isVisible }: { chat: Chat; isVisible: boolean }) {
       }
 
       // Pause on completed conversation, then fade out and restart
-      schedule(() => setFading(true), t + 8000)
-      schedule(runLoop, t + 10000)
+      schedule(() => setFading(true), t + 13000)
+      schedule(runLoop, t + 15000)
     }
 
     runLoop()

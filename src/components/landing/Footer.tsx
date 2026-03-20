@@ -11,12 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: 'linear-gradient(135deg, #d4a843 0%, #8b5cf6 100%)' }}
-              >
-                <span style={{ fontFamily: 'Syne, sans-serif', color: '#0a0118', fontWeight: 800, fontSize: 15 }}>O</span>
-              </div>
+              <img src="/logo.png" alt="OrquestAr" className="h-9 w-auto" />
               <span
                 className="text-xl font-bold"
                 style={{ fontFamily: 'Syne, sans-serif', color: '#f0e6d3' }}
