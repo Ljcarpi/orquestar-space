@@ -213,10 +213,14 @@
 }
 
 /* ─── Smooth scroll ───────────────────────────────────────── */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: #0a0118;
+}
 
 body {
   margin: 0;
+  background: #0a0118;
 }
 
 h1,
