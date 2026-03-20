@@ -245,10 +245,23 @@ function ChatCard({ chat, isVisible }: { chat: Chat; isVisible: boolean }) {
   const [showTyping, setShowTyping] = useState(false)
   const [fading, setFading] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const userScrolled = useRef(false)
 
-  // Auto-scroll to bottom whenever messages or typing indicator change
+  // Track if user manually scrolled up
   useEffect(() => {
-    if (scrollRef.current) {
+    const el = scrollRef.current
+    if (!el) return
+    const onScroll = () => {
+      const atBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 40
+      userScrolled.current = !atBottom
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Auto-scroll to bottom only if user hasn't scrolled up
+  useEffect(() => {
+    if (!userScrolled.current && scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
   }, [shownMessages, showTyping])
@@ -273,6 +286,7 @@ function ChatCard({ chat, isVisible }: { chat: Chat; isVisible: boolean }) {
       setShownMessages([])
       setShowTyping(false)
       setFading(false)
+      userScrolled.current = false
 
       let t = 700
 
@@ -294,8 +308,8 @@ function ChatCard({ chat, isVisible }: { chat: Chat; isVisible: boolean }) {
       }
 
       // Pause on completed conversation, then fade out and restart
-      schedule(() => setFading(true), t + 3200)
-      schedule(runLoop, t + 4400)
+      schedule(() => setFading(true), t + 8000)
+      schedule(runLoop, t + 10000)
     }
 
     runLoop()
